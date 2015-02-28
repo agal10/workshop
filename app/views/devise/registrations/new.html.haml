@@ -1,0 +1,22 @@
+.container
+  .mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .panel.panel-info
+      .panel-title
+        %h2 Sign up
+      .panel-body{:style=>"padding-top:30px"}
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name),input_html: { class: 'form-horizontal' }) do |f|
+          = f.error_notification
+          .input-group{:style=>"margin-bottom: 25px"}
+            = f.input :email, required: true, autofocus: true, :class => "form-control"
+          .input-group{:style=>"margin-bottom: 25px"}
+            = f.input :firstname, required: true, :class => "form-control"
+          .input-group{:style=>"margin-bottom: 25px"}
+            = f.input :lastname, required: true, :class => "form-control"
+          .input-group{:style=>"margin-bottom: 25px"}
+            = f.input :password, required: true, :class => "form-control"
+          .input-group{:style=>"margin-bottom: 25px"}
+            = f.input :password_confirmation, required: true, :class => "form-control"
+          .form-group{:style=>"margin-top:10px"}
+            .col-sm-12.controls
+              = f.button :submit, "Sign up", :class => "btn btn-success"
+            = render "devise/shared/links"

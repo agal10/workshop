@@ -1,0 +1,37 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3.toppad
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title= @user.firstname
+        .panel-body
+          .row
+            .col-md-2
+            .col-md-10
+              %table.table.table-user-information
+                %tbody
+                  %tr
+                    %td Firstname
+                    %td= @user.firstname
+                  %tr
+                    %td Lastname 
+                    %td= @user.lastname
+                  %tr
+                    %td Email 
+                    %td= @user.email
+                  %tr
+                    %td Created at 
+                    %td= @user.create_date
+              = link_to 'Edit profile', edit_user_registration_path,  :class =>"btn btn-primary"
+      %h3 User reviews
+      %table.table.flatTable
+        %tr.headingTr
+          %th Content
+          %th Rating
+          %th Created at       
+        - @reviews.each do |review|
+          %tr
+            %td=review.content
+            %td=review.rating
+            %td=review.create_date
+
